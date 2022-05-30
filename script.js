@@ -9,7 +9,7 @@ let recordFlag = false;
 let transparentColor = "transparent"
 
 let constraint = {
-    video : false,  //true
+    video : true,  //true
     audio : false   //true
 }
 
@@ -35,7 +35,7 @@ navigator.mediaDevices.getUserMedia(constraint)
 
   if(db)
   {
-    let videoID = 1234;
+    let videoID = shortid();
     let dbTransaction = db.transaction("video","readwrite");
     let videoStorage = dbTransaction.objectStore("video");
     let videoEntry = {
@@ -107,7 +107,7 @@ function startTimer() {
 
 function stopTimer() {
   clearInterval(timerID);
-  timer.innerText = "00:00:00"
+  timer.innerText = "00:00:00";
   timer.style.display = "none";
   
 }
@@ -129,7 +129,7 @@ captBtnCont.addEventListener("click",(e) => {
 
   if(db)
   {
-    let imageID = 1234;
+    let imageID = shortid();
     let dbTransaction = db.transaction("image","readwrite");
     let imageStorage = dbTransaction.objectStore("image");
     let imageEntry = {
