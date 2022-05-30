@@ -68,3 +68,11 @@ body{
     color: white;
 }
 
+.delete:hover {
+    cursor: pointer;
+}
+
+.download:hover {
+    cursor: pointer;
+}
+

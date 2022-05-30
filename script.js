@@ -39,7 +39,7 @@ navigator.mediaDevices.getUserMedia(constraint)
     let dbTransaction = db.transaction("video","readwrite");
     let videoStorage = dbTransaction.objectStore("video");
     let videoEntry = {
-      id : videoID,
+      id : `vid-${videoID}`,
       blobData : blob
     }
     videoStorage.add(videoEntry);
@@ -127,15 +127,18 @@ captBtnCont.addEventListener("click",(e) => {
   let imageURL = canvas.toDataURL();
 
 
+
   if(db)
   {
     let imageID = shortid();
     let dbTransaction = db.transaction("image","readwrite");
     let imageStorage = dbTransaction.objectStore("image");
     let imageEntry = {
-      id : imageID,
-      URL : imageURL
+      id : `img-${imageID}`,
+      url : imageURL,
+      
     }
+    
     imageStorage.add(imageEntry);
   }
   // let a = document.createElement("a");
